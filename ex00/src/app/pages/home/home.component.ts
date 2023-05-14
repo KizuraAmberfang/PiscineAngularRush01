@@ -27,8 +27,7 @@ export class HomeComponent {
   getImagesPage(page : number, per_page: number) {
     this.imageService.getImagesPage(page, per_page)
     .subscribe((res: any) => {
-      this.images = res;
-      console.log(res);
+      this.images = res.body;
     })
   }
 

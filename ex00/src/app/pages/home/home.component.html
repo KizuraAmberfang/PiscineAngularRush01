@@ -1,7 +1,7 @@
-<div class="img-container">
-    <mat-card class="card" *ngFor="let x of images">
-        <img [src]=x.image>
-    </mat-card>
-</div>
-<mat-paginator [length]=paginatorLen [pageSizeOptions]="[15, 30, 60, 100]" aria-label="Select page" (page)="changePage($event)">
+<mat-grid-list cols="5" rowHeight="1:2">
+    <mat-grid-tile *ngFor="let x of images">
+        <app-card-image [data]="x"></app-card-image>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-paginator [length]=paginatorLen [pageSizeOptions]="[10, 15, 20, 30]" aria-label="Select page" (page)="changePage($event)">
 </mat-paginator>

@@ -1,0 +1,18 @@
+<a [routerLink]="['/image/' + data.id]">
+    <mat-card class="card" (mouseenter)="showButtons()" (mouseleave)="hideButtons()" click="redirect()">
+        <img class="card-image" [src]=data.urls.regular>
+        <mat-card-actions *ngIf="show" class="button-container">
+            <button mat-button color="accent" (click)="download(data.links.download, data.id)"><mat-icon>download</mat-icon></button>
+            <button mat-button color="accent"><mat-icon>share</mat-icon></button>
+        </mat-card-actions>
+        <p>
+
+            <mat-toolbar>
+                <img [src]=data.user.profile_image.large class="avatar">
+                <span>
+                    {{data.user.username}}
+                </span>
+            </mat-toolbar>
+        </p>
+        </mat-card>
+</a>
