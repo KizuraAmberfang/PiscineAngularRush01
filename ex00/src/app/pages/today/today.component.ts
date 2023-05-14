@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { UnsplashService} from '../../services/unsplash.service';
+import { UnsplashService } from 'src/app/services/unsplash.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-today',
+  templateUrl: './today.component.html',
+  styleUrls: ['./today.component.css']
 })
-export class HomeComponent {
+export class TodayComponent {
   images : any;
   page: number = 1;
   per_page: number = 10;
@@ -23,12 +23,13 @@ export class HomeComponent {
     this.per_page = 10
     this.paginatorLen = this.per_page * 10;
     this.breakpoints = window.innerWidth / 400;
-    this.getImagesPage(this.page, this.per_page);
+    this.getImagesPage();
   }
 
-  getImagesPage(page : number, per_page: number) {
-    this.imageService.getImagesPage(page, per_page)
+  getImagesPage() {
+    this.imageService.getImagesToday(this.page, this.per_page)
     .subscribe((res: any) => {
+      console.log(res);
       this.images = res.body;
     })
   }
@@ -37,7 +38,7 @@ export class HomeComponent {
     this.page = e.pageIndex;
     this.per_page = e.pageSize;
     this.paginatorLen = this.per_page * 10;
-    this.getImagesPage(this.page, this.per_page);
+    this.getImagesPage();
   }
 
   onResize(e : any) {

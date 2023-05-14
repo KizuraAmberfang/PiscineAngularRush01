@@ -1,0 +1,51 @@
+img {
+    max-width: 100%;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column!important;
+    margin: 2%;
+    position: absolute;
+    top: 3%;
+    width: 90%;
+}
+
+.img-container {
+    position: absolute;
+    top: 3%;
+    border-radius: 25px;
+    margin: 2%;
+}
+
+.grid-style {
+    border-radius: 20px;
+    margin: 5%;
+    max-width: 90%;
+    box-shadow: 0 0 10px 1px #ccc;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.button-container button {
+    margin: 3% 1%;
+}
+
+h1 {
+    font-weight: 500;
+}
+
+.data-numbers {
+    margin: 2% 0;
+}
+
+@media (max-width: 1199px) {
+    img {
+        margin: 0;
+        max-width: 90%;
+    }
+}

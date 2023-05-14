@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UnsplashService } from 'src/app/services/unsplash.service';
 
 @Component({
   selector: 'app-card-image',
@@ -10,7 +11,7 @@ export class CardImageComponent implements OnInit {
 
   show: boolean = false;
 
-  constructor () {}
+  constructor(private imageService: UnsplashService) {}
 
   ngOnInit(): void {
       
@@ -24,13 +25,23 @@ export class CardImageComponent implements OnInit {
     this.show = false;
   }
 
-  download(url: string, fileName: string) {
-    const a: any = document.createElement('a');
-    a.href = url;
-    a.download = fileName;
-    document.body.appendChild(a);
-    a.style = 'display: none';
-    a.click();
-    a.remove();
+  download(url: string, username: string, fileName: string) {
+    this.imageService.downloadImg(url)
+    .subscribe((res: any) => {
+        const a: any = document.createElement('a');
+        a.setAttribute('target', '_black');
+        a.href = res.url;
+        a.download = username + '-' + fileName + '-unsplash.jpeg';
+        document.body.appendChild(a);
+        a.style = 'display: none';
+        a.click();
+        console.log(a);
+        a.remove();
+      }
+    )
+}
+
+  copy(str: string) {
+    navigator.clipboard.writeText(str);
   }
 }

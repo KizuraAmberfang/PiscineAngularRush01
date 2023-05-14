@@ -1,12 +1,27 @@
-<mat-card>
-    <img mat-card-xl-image [src]=image.urls.full>
-    <span>{{image.description}}</span>
-    <span>{{image.alt_description}}</span>
-    <span>{{image.user.username}}</span>
-    <span>{{image.views}}</span>
-    <span>{{image.downloads}}</span>
-    <span>{{image.likes}}</span>
-    Comments
-    <span>>{{image.links.download}}</span>
-    <span>>{{image.links.html}}</span>
-</mat-card>
+<mat-grid-list [cols]="breakpoints" class="grid-style" (window:resize)="onResize($event)">
+    <mat-grid-tile class="img-container">
+        <img mat-card-xl-image [src]=image.urls.full>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div class="info-container">
+            <div class="button-container">
+                <button mat-fab (click)="download(image.links.download_location, image.id, image.user.username)">
+                    <mat-icon>download</mat-icon>
+                </button>
+                <button mat-fab (click)="copy(image.urls.full)">
+                    <mat-icon>share</mat-icon>
+                </button>
+            </div>
+            <h1>{{image.description}}</h1>
+            <p>{{image.alt_description}}</p>
+            <p>Created by: {{image.user.username}}</p>
+            <mat-chip-listbox class="data-numbers">
+                <mat-chip>{{image.views}} views</mat-chip>
+                <mat-chip>{{image.downloads}} downloads</mat-chip>
+                <mat-chip>{{image.likes}} likes</mat-chip>
+            </mat-chip-listbox>
+            <h1>Comments</h1>
+            <p>There are no comment here.</p>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

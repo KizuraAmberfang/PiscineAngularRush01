@@ -1,1 +1,25 @@
-<p>navbar works!</p>
+<mat-toolbar class="navbar">
+    <div>
+        <img class="avatar" mat-chip-avatar src="assets/arcana.png" alt="Arcana">
+        <mat-chip class="chip" [routerLink]="['/']">Home</mat-chip>
+        <mat-chip class="chip" [routerLink]="['/today']">Today</mat-chip>
+            <mat-form-field class="search-field">
+                <mat-label>
+                    <mat-icon aria-hidden="false">search</mat-icon>
+                    Search
+                </mat-label>
+                <input id="search" matInput type="text" (keyup.enter)="onKeyEnterEvent($event)">
+                {{value}}
+            </mat-form-field>
+        <button mat-button>
+          <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" />
+        </button>
+        <button mat-button>
+          <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" />
+        </button>
+        <button mat-button>
+          <mat-icon>tiktok</mat-icon>
+        </button>
+    </div>
+  </mat-toolbar>
+  

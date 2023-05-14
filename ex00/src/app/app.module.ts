@@ -16,9 +16,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatChipsModule} from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { ImagesComponent } from './pages/images/images.component';
 import { SearchComponent } from './pages/search/search.component';
+import { TodayComponent } from './pages/today/today.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { SearchComponent } from './pages/search/search.component';
     FooterComponent,
     CardImageComponent,
     ImagesComponent,
-    SearchComponent
+    SearchComponent,
+    TodayComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,9 @@ import { SearchComponent } from './pages/search/search.component';
     MatGridListModule,
     MatIconModule,
     MatChipsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

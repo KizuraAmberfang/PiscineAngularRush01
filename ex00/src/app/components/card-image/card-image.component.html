@@ -1,12 +1,12 @@
-<a [routerLink]="['/image/' + data.id]">
-    <mat-card class="card" (mouseenter)="showButtons()" (mouseleave)="hideButtons()" click="redirect()">
+<mat-card class="card" (mouseenter)="showButtons()" (mouseleave)="hideButtons()">
+        <a [routerLink]="['/image/' + data.id]">
         <img class="card-image" [src]=data.urls.regular>
+    </a>
         <mat-card-actions *ngIf="show" class="button-container">
-            <button mat-button color="accent" (click)="download(data.links.download, data.id)"><mat-icon>download</mat-icon></button>
-            <button mat-button color="accent"><mat-icon>share</mat-icon></button>
+            <button mat-mini-fab color="accent" (click)="download(data.links.download_location, data.user.username, data.id)"><mat-icon>download</mat-icon></button>
+            <button mat-mini-fab color="accent" (click)="copy(data.urls.full)"><mat-icon>share</mat-icon></button>
         </mat-card-actions>
         <p>
-
             <mat-toolbar>
                 <img [src]=data.user.profile_image.large class="avatar">
                 <span>
@@ -15,4 +15,3 @@
             </mat-toolbar>
         </p>
         </mat-card>
-</a>
